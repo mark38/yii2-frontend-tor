@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use backend\widgets\gallery\GalleryManagerAction;
 use common\models\geobase\GeobaseCity;
 use common\models\tor\TorAds;
 use Yii;
@@ -40,6 +41,15 @@ class TorController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'gallery-manager' => [
+                'class' => GalleryManagerAction::className(),
+            ],
+        ];
+    }
+
     public function actionProfile()
     {
         $model = User::findOne(Yii::$app->user->id);
@@ -61,7 +71,7 @@ class TorController extends Controller
     {
         if (!$id) {
             $model = new TorAds();
-            $model->geobase_city = User::findOne(Yii::$app->user->id)->city_id ? GeobaseCity::findOne(User::findOne(Yii::$app->user->id)->city_id)->name : null;
+            $model->geobase_city = User::findOne(Yii::$app->user->id)->geobase_city_id ? GeobaseCity::findOne(User::findOne(Yii::$app->user->id)->geobase_city_id)->name : null;
         } else {
             $model = TorAds::findOne($id);
             $model->geobase_city = GeobaseCity::findOne($model->city_id)->name;

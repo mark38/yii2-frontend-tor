@@ -63,14 +63,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?=$form->field($model, 'links_id')->widget(CategoryLinkSelect::className(), [
                     'pluginOptions' => [
                         'url' => '/',
-                        'categories_id' => 1,
+                        'categories_id' => 3,
                     ]
                 ])?>
-                <?=$form->field($model, 'gl_groups_id')->widget(UploadGallery::className(), [
+                <?=$form->field($model, 'gallery_groups_id')->widget(\backend\widgets\gallery\GalleryManager::className(), [
                     'pluginOptions' => [
-                        'url' => Url::to(['/gallery/upload']),
-                        'type' => 'ads',
+                        'type' => 'tor',
+                        'apiUrl' => 'gallery-manager',
+                        'webRoute' => Yii::getAlias('@frontend/web'),
                     ],
+                    //'options' => ['id' => 'gallery-upload'],
                 ]) ?>
 
                 <?=$form->field($model, 'price', [

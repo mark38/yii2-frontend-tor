@@ -20,10 +20,10 @@ class MainController extends Controller
         $link = Links::findOne(['url' => '/'.$url]);
         if (!$link) return $this->render('/site/develop');
 
-        /*$link = Links::findOne(['url' => '/'.$url]);
+        $link = Links::findOne(['url' => '/'.$url]);
         if (!$link) return $this->render('/site/develop');
 
-        $this->layout = $link->layout->layout;
+        $this->layout = $link->layout->name;
         Yii::$app->view->registerMetaTag(['description' => $link->description]);
         Yii::$app->view->registerMetaTag(['keywords' => $link->keywords]);
         $parent = Links::findOne($link->parent);
@@ -37,7 +37,7 @@ class MainController extends Controller
             }
         }
 
-        return $this->render('/categories/'.$link->category->category, ['link' => $link, 'content' => $content]);*/
+        return $this->render($link->view->name, ['link' => $link, 'content' => $content]);
     }
 
     public function getModule($matches)
