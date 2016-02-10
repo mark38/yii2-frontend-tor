@@ -1,0 +1,34 @@
+.category-link-select {
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 1;
+    margin-top: 4px;
+    padding: 0;
+    border-bottom: 1px dashed;
+}
+.category-link-select:hover {
+    text-decoration: none;
+}
+
+#categories-modal .modal-dialog {
+    width: 80%;
+    max-width: 800px;
+}
+#categories-modal .modal-header {
+    border: none;
+}
+#categories-modal .modal-header button.close {
+    font-size: 32px;
+}
+
+.category-list > ul ul {
+    margin: 10px;
+}
+.category-list > ul ul a {
+    font-size: 22px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.category-list > ul ul a.active {
+    color: #333;
+}

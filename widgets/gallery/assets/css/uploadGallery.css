@@ -1,0 +1,48 @@
+div.upload-gallery-content {
+    position: relative;
+}
+div.upload-gallery-content > .js-upload-image-default {
+    position: absolute;
+    color: #bbb;
+    font-size: 11px;
+    top: 100px;
+}
+ul.js-upload-gallery {
+    border: none;
+    margin: 0;
+}
+ul.js-upload-gallery > li {
+    margin: 0 10px 25px 0;
+    padding: 0;
+    width: 114px;
+    height: 98px;
+    transition: all .2s;
+}
+ul.js-upload-gallery > li.js-upload {
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 20px;
+    color: #aaa;
+    border: 1px dashed;
+}
+ul.js-upload-gallery > li.js-upload input#js-upload-action {
+    opacity: 0;
+    margin: -400px;
+}
+
+ul.js-upload-gallery > li div.upload-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+ul.js-upload-gallery > li div.upload-img > .btn {
+    position: absolute;
+    opacity: 1;
+    top: 0;
+    right: 0;
+    margin: 4px;
+}
+ul.js-upload-gallery > li div.upload-img > .btn:hover {
+    opacity: 1;
+}

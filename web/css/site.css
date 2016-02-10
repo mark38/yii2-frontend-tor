@@ -1,0 +1,54 @@
+html, body {
+    background: #ece9e2;
+    height: 100%;
+}
+h1 {
+    font-size: 26px;
+    margin: 10px 0 25px;
+}
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -100px;
+    padding: 0 0 100px;
+}
+.container {
+    max-width: 1180px;
+}
+.content {
+    background-color: #fff;
+    padding: 12px 15px 21px;
+    border: 1px solid #c8c8c8;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.breadcrumb {
+    font-size: 13px;
+    font-style: italic;
+    background: none;
+    padding: 0;
+}
+.breadcrumb a {
+    color: #666;
+    text-decoration: underline;
+}
+.breadcrumb a:hover {
+    text-decoration: none;
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+/* signup */
+.signup {
+    margin: 25px 0;
+}
+
+/* modal */
+.modal {text-align:center;}
+.modal:before {display:inline-block; vertical-align:middle; content:" "; height:100%;}
+.modal-dialog {display:inline-block; text-align:left; vertical-align:middle;}
+.modal-content {border-radius:2px;}
+.modal-header h2 {margin:0; font-weight:bold; font-size:18px;}
