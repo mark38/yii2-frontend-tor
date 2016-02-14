@@ -45,8 +45,7 @@ class CategoryLinkSelect extends InputWidget
         ]);
 
         echo Html::beginTag('div', ['class' => 'category-list']);
-        echo Html::beginTag('ul', ['class' => 'list-inline', 'id' => 'categories-lists']);
-        echo '<li id="category-list-1"></li>';
+        echo Html::beginTag('ul', ['class' => 'list-inline', 'id' => 'categories-lists-null']);
         echo Html::endTag('ul');
         echo Html::endTag('div');
 

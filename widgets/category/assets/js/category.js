@@ -1,49 +1,35 @@
 (function($) {
+
     $('#categories-modal').on('shown.bs.modal', function(){
-        getParentLinks($(this).attr('data-categories-id'), null, null);
+        getLink($(this).attr('data-categories-id'), null);
     });
 
-    getParentLinks = function(categories_id, parent, level) {
-        if (parent) {
-            $('#category-list-'+level).find('a').removeClass('active');
-            $('a#category-link-'+parent).addClass('active');
-        }
+    $('#categories-modal').on('hidden.bs.modal', function () {
+        $('#categories-lists-null').next().remove();
+    });
 
+    function getLink(categories_id, parent) {
         $.ajax({
             type: 'POST',
             url: '/categories',
             data: {'categories_id': categories_id, 'parent': parent},
             dataType: 'json',
             success: function(jsonData) {
-                if(jsonData.links.length == 0) {
-                    alert('Server error. Please try again later.');
-                    return false;
-                }
-                var html = '<ul class="list-unstyled">';
+                var html = !parent ? '<ul class="list-unstyled list-inline">' : '<ul class="list-unstyled">';
                 $.each(links = jsonData.links, function(i){
-                    var action = '';
-                    if (links[i].child_exist == 1) {
-                        action = ' onclick="getParentLinks('+categories_id+', '+links[i].id+', '+links[i].level+')"';
-                    } else {
-                        action = ' onclick="selectCategoryLink('+links[i].id+')"';
-                    }
-                    html += '<li>' +
-                                '<a'+action+' id="category-link-'+links[i].id+'">'+links[i].anchor+'</a>' +
-                            '</li>';
+                        if (links[i].child_exist == 1) {
+                            html += '<li>' +
+                                '<span id="categories-lists-'+links[i].id+'">' +links[i].anchor+'</span>' +
+                                '</li>';
+                            getLink(categories_id, links[i].id);
+                        } else {
+                            html += '<li>' +
+                                '<a onclick="selectCategoryLink('+links[i].id+')" id="category-link-'+links[i].id+'">'+links[i].anchor+'</a>' +
+                                '</li>';
+                        }
                 });
                 html += '</ul>';
-
-                $('#category-list-'+jsonData.level).html(html);
-
-                next_level = jsonData.level+1;
-                while ($('#category-list-'+next_level).length > 0) {
-                    $('#category-list-'+next_level).remove();
-                    next_level += 1;
-                }
-
-                if ($('#category-list-'+(jsonData.level+1)).length == 0) {
-                    $('#categories-lists').append('<li id="category-list-'+(jsonData.level+1)+'"></li>');
-                }
+                $('#categories-lists-' + parent).parent().append(html);
             },
             error: function() {
                 alert('Server error. Please try again later.');
@@ -51,7 +37,7 @@
         });
     }
 
-    selectCategoryLink = function (links_is) {
+    function selectCategoryLink(links_is) {
         $.ajax({
             type: 'POST',
             url: '/anchor-path',

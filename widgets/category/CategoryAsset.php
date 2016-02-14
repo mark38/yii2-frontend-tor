@@ -17,4 +17,6 @@ class CategoryAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
+    public $publishOptions = ['forceCopy' => true];
 }

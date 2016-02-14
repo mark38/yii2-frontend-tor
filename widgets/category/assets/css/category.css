@@ -21,14 +21,27 @@
     font-size: 32px;
 }
 
-.category-list > ul ul {
-    margin: 10px;
-}
-.category-list > ul ul a {
+.category-list {
     font-size: 22px;
+    text-decoration: underline;
+}
+
+.category-list ul {
+    padding-left: 10px;
+    display:table-cell;
+    vertical-align: middle;
+
+}
+
+.category-list ul ul {
+    font-size: 16px;
+}
+
+.category-list a {
     cursor: pointer;
     text-decoration: none;
 }
+
 .category-list > ul ul a.active {
     color: #333;
 }
