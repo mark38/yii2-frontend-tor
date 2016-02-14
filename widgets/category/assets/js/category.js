@@ -37,7 +37,7 @@
         });
     }
 
-    function selectCategoryLink(links_is) {
+    selectCategoryLink = function(links_is) {
         $.ajax({
             type: 'POST',
             url: '/anchor-path',
