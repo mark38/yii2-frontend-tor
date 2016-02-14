@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\main\Categories;
+use common\models\tor\TorAds;
 use Yii;
 use yii\web\Controller;
 use frontend\models\GetWidget;
@@ -17,8 +19,17 @@ class MainController extends Controller
 
     public function actionCatch($url=null)
     {
+
+        /////////////////////////
+        $links = Links::find()->where(['categories_id' => 3])->all();
+        $ads = TorAds::find()->all();
+        /////////////////////////
+
         $link = Links::findOne(['url' => '/'.$url]);
-        if (!$link) return $this->render('/site/develop');
+        if (!$link) return $this->render('/site/develop', [
+            'links' => $links,
+            'ads' => $ads
+        ]);
 
         $link = Links::findOne(['url' => '/'.$url]);
         if (!$link) return $this->render('/site/develop');
