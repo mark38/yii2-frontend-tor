@@ -182,10 +182,8 @@ class SiteController extends Controller
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
             $categories_id = Yii::$app->request->post('categories_id');
-            $parent = Yii::$app->request->post('parent') ? Yii::$app->request->post('parent') : null;
             $links = Links::find()->where([
                 'categories_id' => $categories_id,
-                'parent' => $parent
             ])->orderBy(['seq' => SORT_ASC])->all();
 
             return [
