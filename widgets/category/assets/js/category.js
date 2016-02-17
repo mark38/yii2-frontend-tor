@@ -49,6 +49,9 @@ function appendParentLinks() {
 }
 
 function appendChildLinks(parent_id, parent_level) {
+    $('#list-' + parent_level).prev().find('a').removeClass('active');
+    $('a#category-link-'+parent_id).addClass('active');
+
     if (current_level-parent_level > 0) {
         do {
             $('#list-' + current_level).remove();

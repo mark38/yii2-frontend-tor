@@ -21,19 +21,10 @@
     font-size: 32px;
 }
 
-.category-list {
-    font-size: 22px;
-    text-decoration: underline;
-}
-
-.category-list ul {
-    padding-left: 16px;
-    display:table-cell;
-
-}
-
 .category-list ul {
     font-size: 16px;
+    padding: 0 16px;
+    display:table-cell;
 }
 
 .category-list a {
@@ -41,6 +32,6 @@
     text-decoration: none;
 }
 
-.category-list > ul ul a.active {
+.category-list a.active {
     color: #333;
 }
