@@ -27,6 +27,8 @@ return [
 
                 '/geobase/<action>' => '/geobase/<action>',
                 '/tor/<action>' => '/tor/<action>',
+                '/tor/gallery-manager' => '/tor/<action>',
+
                 '/gallery/<action>' => '/gallery/<action>',
                 '/' => '/main/catch',
                 '<url:.+>' => '/main/catch',
