@@ -53,12 +53,3 @@ h1 {
 .modal-content {border-radius:2px;}
 .modal-header h2 {margin:0; font-weight:bold; font-size:18px;}
 
-.categories {
-    display:table; margin:0 auto;
-    padding: 20px;
-}
-.categories ul {
-    padding-left:16px;
-    display: table-cell;
-}
-

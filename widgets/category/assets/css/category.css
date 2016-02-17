@@ -35,3 +35,12 @@
 .category-list a.active {
     color: #333;
 }
+
+.categories {
+    display:table; margin:0 auto;
+    padding: 20px;
+}
+.categories ul {
+    padding-left:16px;
+    display: table-cell;
+}

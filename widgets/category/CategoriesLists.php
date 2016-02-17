@@ -15,7 +15,9 @@ class CategoriesLists extends InputWidget
 
     public function init()
     {
-
+        if (empty($this->links)) {
+            throw new InvalidConfigException("The 'links' property has not been set.");
+        }
     }
 
     public function run()
@@ -32,6 +34,9 @@ class CategoriesLists extends InputWidget
             }
         }
         echo '</ul>';
+
+        $view = $this->view;
+        CategoryAsset::register($view);
     }
 
     private function appendChild($allLinks, $currentLink) {
