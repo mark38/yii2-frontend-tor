@@ -72,7 +72,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         'apiUrl' => 'gallery-manager',
                         'webRoute' => Yii::getAlias('@frontend/web'),
                     ],
-                    //'options' => ['id' => 'gallery-upload'],
                 ]) ?>
 
                 <?=$form->field($model, 'price', [
