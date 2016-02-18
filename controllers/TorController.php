@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-use backend\widgets\gallery\GalleryManagerAction;
+use mark38\galleryManager\GalleryManagerAction;
 use common\models\geobase\GeobaseCity;
 use common\models\tor\TorAds;
 use Yii;
@@ -26,7 +26,7 @@ class TorController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['profile', 'mng-ad', 'my-ads'],
+                        'actions' => ['profile', 'mng-ad', 'my-ads', 'gallery-manager'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

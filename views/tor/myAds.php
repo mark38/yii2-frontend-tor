@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         '<tbody>';
 
                     foreach ($ads as $ad) {
-                        if (!$ad->gl_groups_id) {
+                        if (!$ad->galleryGroup) {
                             $image = Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
                         } else {
                             $image = Html::img($ad->glImage->img_small, ['class' => 'img-rounded', 'height' => 64]);
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         echo '<tr>' .
                                 '<td>'.$image.'</td>' .
                                 '<td><strong>'.$ad->name.'</strong><br>'.Html::tag('small', $ad->description, ['class' => 'text-muted']).'</td>' .
-                                '<td>'.$ad->geobaseCity->name.'</td>' .
+                                '<td>'.$ad->city->name.'</td>' .
                                 '<td>' .
                                     $ad->price.' ('.($ad->price - ($ad->price * Yii::$app->params['saleBacker'])/100).') '.Icon::show('rub', [], Icon::FA).'<br>' .
                                 '</td>' .

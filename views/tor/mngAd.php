@@ -4,10 +4,10 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use kartik\icons\Icon;
 use frontend\views\tor\TorAsset;
-use frontend\widgets\gallery\UploadGallery;
 use frontend\widgets\nav\TorNav;
 use kartik\typeahead\Typeahead;
 use frontend\widgets\category\CategoryLinkSelect;
+use mark38\galleryManager\GalleryManager;
 
 /* @var $this yii\web\View */
 /* @var $model \common\models\tor\TorAds */
@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'categories_id' => 3,
                     ]
                 ])?>
-                <?=$form->field($model, 'gallery_groups_id')->widget(\backend\widgets\gallery\GalleryManager::className(), [
+                <?=$form->field($model, 'gallery_groups_id')->widget(GalleryManager::className(), [
                     'pluginOptions' => [
                         'type' => 'tor',
                         'apiUrl' => 'gallery-manager',
