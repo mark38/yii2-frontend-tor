@@ -10,7 +10,7 @@ class TorAdsAsset extends AssetBundle
         'css/bottom-ads.css',
     ];
     public $js = [
-//        'js/uploadGallery.js',
+        'js/bottom-ads.js',
     ];
     public $depends = [
         'yii\web\JqueryAsset',
