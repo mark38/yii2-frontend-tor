@@ -2,12 +2,12 @@
 use yii\bootstrap\Html;
 use yii\helpers\Url;
 use frontend\views\tor\TorAsset;
-use frontend\widgets\nav\TorNav;
+use frontend\widgets\nav\Account;
 use yii\bootstrap\ActiveForm;
 use kartik\typeahead\Typeahead;
 
 /* @var $this yii\web\View */
-/* @var $model \common\models\User */
+/* @var $user \common\models\User */
 
 TorAsset::register($this);
 
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3">
-            <?=TorNav::widget()?>
+            <?=Account::widget()?>
         </div>
         <div class="col-sm-9">
             <div class="content">
@@ -44,9 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]); ?>
 
-                <?=$form->field($model, 'username')->staticControl()?>
-                <?=$form->field($model, 'contacts')?>
-                <?=$form->field($model, 'geobase_city')->widget(Typeahead::classname(), [
+                <?=$form->field($user, 'username')->staticControl()?>
+                <?/*=$form->field($model, 'contacts')*/?><!--
+                --><?/*=$form->field($geobase_city, 'name')->widget(Typeahead::classname(), [
                     'scrollable' => false,
                     'pluginOptions' => ['highlight'=>true],
                     'dataset' => [
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'limit' => 10,
                         ]
                     ]
-                ])?>
+                ])*/?>
 
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-8"><?= Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Сохранить', ['class' => 'btn btn-default', 'name' => 'ad-button']) ?></div>

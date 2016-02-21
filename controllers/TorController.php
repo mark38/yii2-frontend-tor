@@ -52,18 +52,23 @@ class TorController extends Controller
 
     public function actionProfile()
     {
-        $model = User::findOne(Yii::$app->user->id);
-        if ($model->load(Yii::$app->request->post())) {
-            $city = GeobaseCity::findOne(['name' => $model->geobase_city]);
-            $model->city_id = $city ? $city->id : null;
+        $user = User::findOne(Yii::$app->user->id);
+        $geobase_city = new GeobaseCity();
+
+        if ($user->load(Yii::$app->request->post())) {
+            $city = GeobaseCity::findOne(['name' => $user->geobase_city]);
+            $model->geobase_city_id = $city ? $city->id : null;
             $model->save();
             Yii::$app->getSession()->setFlash('success', 'Изменения приняты');
         } else {
-            $model->geobase_city = $model->city_id ? GeobaseCity::findOne($model->city_id)->name : null;
+            /*$model->geobase_city = $model->geobase_city_id ? GeobaseCity::findOne($model->city_id)->name : null;*/
         }
 
+        $geobase_city = $user->geobase_city_id ? GeobaseCity::findOne($user->geobase_city_id) : new GeobaseCity();
+
         return $this->render('/tor/profile', [
-            'model' => $model
+            'user' => $user,
+            'geobase_city' => $geobase_city,
         ]);
     }
 

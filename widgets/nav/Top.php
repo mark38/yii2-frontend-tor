@@ -74,7 +74,7 @@ class Top extends Widget
 
         echo NavX::widget([
             'items' => $this->accountMenu(),
-            'options' => ['class' => 'nav navbar-nav navbar-right nav-pills'],
+            'options' => ['class' => 'nav navbar-nav navbar-right nav-pills account-top-nav'],
             'encodeLabels' => false,
         ]);
 

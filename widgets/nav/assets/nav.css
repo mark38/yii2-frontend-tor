@@ -1,3 +1,8 @@
+.head {
+    -webkit-box-shadow: 0 2px 2px rgba(192,192,192,0.8);
+    -moz-box-shadow: 0 0 2px 2px rgba(192,192,192,0.8);
+    box-shadow: 0 0 2px 2px rgba(192,192,192,0.8);
+}
 .top-nav {
     background-color: #282828;
     min-height: 40px;
@@ -7,37 +12,49 @@
     border-radius: 0;
     border: none;
 }
+.top-nav ul > li {
+    margin: 5px;
+}
 .top-nav ul > li > a {
     background: none !important;
     color: #f1f1f1;
-    padding: 10px;
+    padding: 5px 8px;
     -webkit-transition: all .2s;
     -moz-transition: all .2s;
     -ms-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
-.top-nav ul > li.open > a, .top-nav ul > li > a:hover {
+.top-nav ul > li.active > a, .top-nav ul > li.open > a, .top-nav ul > li > a:hover {
     background-color: #ece9e2 !important;
-    color: #282828;
+    color: #282828 !important;
 }
-.account-nav ul {
+
+.account-top-nav ul {
     border: none;
     padding: 0;
 }
-.account-nav ul > li > a {
-    color: #282828;
-    padding: 6px 10px;
-    margin: 2px;
+.account-top-nav ul > li {
+    margin: 0;
 }
-.account-nav ul > li.active > a, .account-nav ul > li.active > a:hover {
+.account-top-nav ul > li > a {
+    color: #282828;
+    padding: 4px 6px;
+    margin: 3px;
+}
+.account-top-nav ul > li.active > a, .account-top-nav ul > li.active > a:hover {
     background: #ece9e2 !important;
     color: #282828;
 }
-.account-nav ul > li.divider {
+.account-top-nav > li.open > a {
+    -webkit-border-radius: 2px 2px 0 0 !important;
+    -moz-border-radius: 2px 2px 0 0 !important;
+    border-radius: 2px 2px 0 0 !important;
+}
+.account-top-nav ul > li.divider {
     margin: 0;
 }
 
@@ -92,15 +109,14 @@ ul.tor-nav-1 > li:hover > .tor-sub-nav {
     display: block;
 }
 
-/* tor-nav */
-/*
-.tor-nav > li {
+/* Account */
+.account-nav > li {
     margin-bottom: 4px;
     -webkit-box-shadow: inset 6px 0 0 rgba(128,128,128,0.2);
     -moz-box-shadow: inset 6px 0 0 rgba(128,128,128,0.2);
     box-shadow: inset 6px 0 0 rgba(128,128,128,0.2);
 }
-.tor-nav > li > a {
+.account-nav > li > a {
     padding: 6px 12px;
     color: #282828;
     -webkit-transition: all .2s;
@@ -109,7 +125,7 @@ ul.tor-nav-1 > li:hover > .tor-sub-nav {
     -o-transition: all .2s;
     transition: all .2s;
 }
-.tor-nav > li.active > a, .tor-nav > li > a:hover, .tor-nav > li.active > .badge, .tor-nav > li > a:hover > .badge {
+.account-nav > li.active > a, .account-nav > li > a:hover, .account-nav > li.active > .badge, .account-nav > li > a:hover > .badge {
     color: #ece9e2;
     background-color: #282828;
-}*/
+}

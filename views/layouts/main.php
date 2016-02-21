@@ -29,8 +29,10 @@ Icon::map($this, Icon::FA);
 <?php $this->beginBody() ?>
 
     <div class="wrap">
-        <?=Top::widget()?>
-        <?=Tor::widget()?>
+        <div class="head">
+            <?=Top::widget()?>
+            <?=Tor::widget()?>
+        </div>
 
         <div class="container">
             <?= Breadcrumbs::widget([

@@ -4,7 +4,7 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use kartik\icons\Icon;
 use frontend\views\tor\TorAsset;
-use frontend\widgets\nav\TorNav;
+use frontend\widgets\nav\Account;
 use kartik\typeahead\Typeahead;
 use frontend\widgets\category\CategoryLinkSelect;
 use mark38\galleryManager\GalleryManager;
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3">
-            <?=TorNav::widget()?>
+            <?=Account::widget()?>
             <div class="well well-account">
                 <?=$this->render('myProfileInfo')?>
             </div>

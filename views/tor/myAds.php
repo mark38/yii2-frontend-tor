@@ -1,7 +1,7 @@
 <?php
 use yii\bootstrap\Html;
 use frontend\views\tor\TorAsset;
-use frontend\widgets\nav\TorNav;
+use frontend\widgets\nav\Account;
 use kartik\icons\Icon;
 
 /* @var $this yii\web\View */
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3">
-            <?=TorNav::widget()?>
+            <?=Account::widget()?>
             <div class="well well-account">
                 <?=$this->render('myProfileInfo')?>
             </div>
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         if (!$ad->galleryGroup) {
                             $image = Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
                         } else {
-                            $image = Html::img($ad->glImage->img_small, ['class' => 'img-rounded', 'height' => 64]);
+                            $image = Html::img($ad->galleryGroup->images->small, ['class' => 'img-rounded', 'height' => 64]);
                         }
                         echo '<tr>' .
                                 '<td>'.$image.'</td>' .
