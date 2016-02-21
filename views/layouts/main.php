@@ -1,12 +1,11 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
-use yii\bootstrap\NavBar;
 use kartik\icons\Icon;
 use frontend\widgets\Alert;
-use frontend\widgets\nav\TopNav;
+use frontend\widgets\nav\Top;
+use frontend\widgets\nav\Tor;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -30,15 +29,8 @@ Icon::map($this, Icon::FA);
 <?php $this->beginBody() ?>
 
     <div class="wrap">
-        <?php NavBar::begin([
-                'brandLabel' => false,
-                'options' => [
-                    'class' => 'top-nav',
-                ]
-        ]);
-        echo TopNav::widget();
-        NavBar::end();
-        ?>
+        <?=Top::widget()?>
+        <?=Tor::widget()?>
 
         <div class="container">
             <?= Breadcrumbs::widget([

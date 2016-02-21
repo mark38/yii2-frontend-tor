@@ -1,0 +1,26 @@
+.vip-tor-preview {
+    border: 1px solid #d8d8d8;
+    padding: 0 10px 10px;
+    border-radius: 2px;
+}
+.vip-tor-preview h2 {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 6px 0 10px;
+    color: darkred;
+}
+
+.tor-list {
+    margin: 0 0 20px;
+}
+.tor-list .name, .tor-list .authorб .tor-list .price {
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tor-list a {
+    font-weight: bold;
+    text-decoration: none;
+}

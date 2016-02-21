@@ -7,10 +7,11 @@ class TorAdsAsset extends AssetBundle
 {
     public $sourcePath = '@frontend/widgets/tor_ads/assets';
     public $css = [
-        'css/bottom-ads.css',
+        'bottom-ads.css',
+        'tor.css',
     ];
     public $js = [
-        'js/bottom-ads.js',
+        'bottom-ads.js',
     ];
     public $depends = [
         'yii\web\JqueryAsset',

@@ -13,13 +13,13 @@ class NavAsset extends AssetBundle
      * @inheritdoc
      */
     public $css = [
-        'css/nav.css',
+        'nav.css',
     ];
     /**
      * @inheritdoc
      */
     public $js = [
-        'js/nav.js',
+        'nav.js',
     ];
     /**
      * @inheritdoc

@@ -1,6 +1,5 @@
 <?php
 use common\models\main\Links;
-use frontend\widgets\tor_ads\Index;
 
 /** @var $this yii\web\View */
 /** @var $link common\models\main\Links */
@@ -17,11 +16,8 @@ if ($link->start != 1) $this->params['breadcrumbs'][] = $link->anchor;
 
 ?>
 
-<div class="promo text-center">BANNER</div>
-
 <div class="container">
     <div class="content">
-        <?=Index::widget()?>
         <?=$contents[0]->text?>
     </div>
 </div>

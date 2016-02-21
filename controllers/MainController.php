@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\main\Categories;
+use common\models\main\Contents;
 use common\models\tor\TorAds;
 use Yii;
 use yii\web\Controller;
@@ -18,6 +18,29 @@ class MainController extends Controller
     }
 
     public function actionCatch($url=null)
+    {
+        $link = Links::findOne(['url' => '/'.$url]);
+        if (!$link) {
+            echo '404 Not found!';
+            return false;
+        }
+        $this->layout = $link->layout->name;
+        if ($link->description) Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $link->description]);
+        if ($link->keywords) Yii::$app->view->registerMetaTag(['name' => 'keywords', 'content' => $link->keywords]);
+        if (isset($link->id)) {
+            $contents = Contents::find()->where(['links_id' => $link->id])->orderBy(['seq' => SORT_ASC])->all();
+            for ($i=0; $i<count($contents); $i++) {
+                $contents[$i]->text = preg_replace_callback('/(\{{)(\S+)(}})/', "self::getModule", $contents[$i]->text);
+                $contents[$i]->text = preg_replace_callback('/(\[\[)(\S+)(]])/', "self::getWidget", $contents[$i]->text);
+            }
+        }
+        return $this->render($link->view->name, [
+            'link' => $link,
+            'contents' => $contents
+        ]);
+    }
+
+    public function actionCatchDef($url=null)
     {
 
         /////////////////////////
