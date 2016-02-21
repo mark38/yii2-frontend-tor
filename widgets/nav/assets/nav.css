@@ -76,6 +76,7 @@ ul.tor-nav-1 > li > a {
 .tor-sub-nav {
     background: #fff;
     position: absolute;
+    z-index: 100;
     display: none;
     padding: 10px;
     opacity: 0;
