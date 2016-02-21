@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Widget;
 use common\models\tor\TorAds;
 
-class Index extends Widget
+class Homepage extends Widget
 {
     public function init()
     {
