@@ -14,7 +14,7 @@ use yii\bootstrap\Html;
             if ($ad->links_id) {
                 $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
 
-                echo '<div class="col-sm-6 col-md-4 tor-list">' .
+                echo '<div class="col-sm-6 col-md-3 tor-list">' .
                         Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
                         '<div class="name">'.Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]).'</div>' .
                         '<div class="author">' .
