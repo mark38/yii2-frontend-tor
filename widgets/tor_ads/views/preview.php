@@ -39,7 +39,7 @@ use yii\bootstrap\Html;
                     $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
 
                     echo '<div>' .
-                            Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
+                            //Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
                             Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]) .
                             '<div>' .
                                 Html::tag('span', $ad->city->name) . ' / ' .
