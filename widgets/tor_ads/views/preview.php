@@ -11,22 +11,20 @@ use yii\bootstrap\Html;
         <?php
         /** @var $ad \common\models\tor\TorAds */
         foreach ($ads as $ad) {
-            if (isset($ad->link)) {
-                $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
+            $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
 
-                echo '<div class="col-sm-6 col-md-3 tor-list">' .
-                        Html::a($image, [$ad->link->url, 'id' => $ad->id]).'<br>' .
-                        '<div class="name">'.Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]).'</div>' .
-                        '<div class="author">' .
-                            Html::tag('span', $ad->city->name) . ' / ' .
-                            Html::tag('span', '<em class="text-muted">'.$ad->user->username.' &mdash; <strong>'.$ad->user->rating.'</strong></em>') .
-                        '</div>' .
-                        '<div class="price">' .
-                            Html::tag('span', preg_replace('/\,00/', '', number_format($ad->price, 2, ',', '&thinsp;'))) .
-                            Html::tag('span', ' <small class="text-muted">('.preg_replace('/\,00/', '', number_format($ad->reward, 2, ',', '&thinsp;')).')</small> руб.') .
-                        '</div>' .
-                     '</div>';
-            }
+            echo '<div class="col-sm-6 col-md-3 tor-list">' .
+                    Html::a($image, [$ad->link->url, 'id' => $ad->id]).'<br>' .
+                    '<div class="name">'.Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]).'</div>' .
+                    '<div class="author">' .
+                        Html::tag('span', $ad->city->name) . ' / ' .
+                        Html::tag('span', '<em class="text-muted">'.$ad->user->username.' &mdash; <strong>'.$ad->user->rating.'</strong></em>') .
+                    '</div>' .
+                    '<div class="price">' .
+                        Html::tag('span', preg_replace('/\,00/', '', number_format($ad->price, 2, ',', '&thinsp;'))) .
+                        Html::tag('span', ' <small class="text-muted">('.preg_replace('/\,00/', '', number_format($ad->reward, 2, ',', '&thinsp;')).')</small> руб.') .
+                    '</div>' .
+                 '</div>';
         }
         ?>
     </div>
@@ -35,24 +33,22 @@ use yii\bootstrap\Html;
             <h2>VIP-объявления</h2>
             <?php
             foreach ($ads_promo as $i => $ad) {
-                if (isset($ad->link)) {
-                    $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
+                $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
 
-                    echo '<div>' .
-                            Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
-                            Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]) .
-                            '<div>' .
-                                Html::tag('span', $ad->city->name) . ' / ' .
-                                Html::tag('span', '<em class="text-muted">'.$ad->user->username.' &mdash; <strong>'.$ad->user->rating.'</strong></em>') .
-                            '</div>' .
-                            '<div class="price">' .
-                                Html::tag('span', preg_replace('/\,00/', '', number_format($ad->price, 2, ',', '&thinsp;'))) .
-                                Html::tag('span', ' <small class="text-muted">('.preg_replace('/\,00/', '', number_format($ad->reward, 2, ',', '&thinsp;')).')</small> руб.') .
-                            '</div>' .
-                         '</div>';
+                echo '<div>' .
+                        Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
+                        Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]) .
+                        '<div>' .
+                            Html::tag('span', $ad->city->name) . ' / ' .
+                            Html::tag('span', '<em class="text-muted">'.$ad->user->username.' &mdash; <strong>'.$ad->user->rating.'</strong></em>') .
+                        '</div>' .
+                        '<div class="price">' .
+                            Html::tag('span', preg_replace('/\,00/', '', number_format($ad->price, 2, ',', '&thinsp;'))) .
+                            Html::tag('span', ' <small class="text-muted">('.preg_replace('/\,00/', '', number_format($ad->reward, 2, ',', '&thinsp;')).')</small> руб.') .
+                        '</div>' .
+                     '</div>';
 
-                    if ($i+1 < count($ads_promo)) echo '<hr>';
-                }
+                if ($i+1 < count($ads_promo)) echo '<hr>';
             }
             ?>
         </div>
