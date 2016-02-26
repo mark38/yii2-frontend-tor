@@ -11,11 +11,11 @@ use yii\bootstrap\Html;
         <?php
         /** @var $ad \common\models\tor\TorAds */
         foreach ($ads as $ad) {
-            if ($ad->links_id) {
+            if (isset($ad->link)) {
                 $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
 
                 echo '<div class="col-sm-6 col-md-3 tor-list">' .
-                        //Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
+                        Html::a($image, [$ad->link->url, 'id' => $ad->id]).'<br>' .
                         '<div class="name">'.Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]).'</div>' .
                         '<div class="author">' .
                             Html::tag('span', $ad->city->name) . ' / ' .
@@ -35,11 +35,11 @@ use yii\bootstrap\Html;
             <h2>VIP-объявления</h2>
             <?php
             foreach ($ads_promo as $i => $ad) {
-                if ($ad->links_id) {
+                if (isset($ad->link)) {
                     $image = $ad->gallery_groups_id && $ad->galleryGroup->galleryImage ? Html::img($ad->galleryGroup->galleryImage->small, ['class' => '', 'style' => 'width:100%;']) : Html::tag('small', 'Нет фото', ['class' => 'text-muted']);
 
                     echo '<div>' .
-                            //Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
+                            Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
                             Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]) .
                             '<div>' .
                                 Html::tag('span', $ad->city->name) . ' / ' .
