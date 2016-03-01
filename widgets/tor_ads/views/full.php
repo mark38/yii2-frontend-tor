@@ -3,6 +3,7 @@ use yii\bootstrap\Html;
 use frontend\widgets\gallery\GalleryAd;
 /** @var $torAd \common\models\tor\TorAds */
 
+$this->title = $torAd->name;
 ?>
 
 <div class="row">
