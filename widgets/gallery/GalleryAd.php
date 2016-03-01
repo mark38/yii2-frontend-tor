@@ -7,30 +7,30 @@ use yii\base\Widget;
 use yii\helpers\Html;
 use evgeniyrru\yii2slick\Slick;
 use newerton\fancybox\FancyBox;
-use common\models\gl\GlImgs;
+use common\models\gallery\GalleryImages;
 
 class GalleryAd extends Widget
 {
-    public $gl_groups_id;
+    public $gallery_groups_id;
     public $imageSliderForOtions = [];
 
     public function init()
     {
-        if (empty($this->gl_groups_id)) {
-            throw new InvalidConfigException("The 'gl_groups_id' property has not been set.");
+        if (empty($this->gallery_groups_id)) {
+            throw new InvalidConfigException("The 'gallery_groups_id' property has not been set.");
         }
     }
 
     public function run()
     {
-        $images = GlImgs::find()->where(['groups_id' => $this->gl_groups_id])->orderBy('seq')->all();
+        $images = GalleryImages::find()->where(['gallery_groups_id' => $this->gallery_groups_id])->orderBy('seq')->all();
         if (!$images) return false;
 
 
 
         foreach ($images as $i => $image) {
-            $items_large[] = Html::a(Html::img($image->img_large, ['class' => 'img-rounded']), $image->img_large, ['rel' => 'gl-fancybox']);
-            $items_small[] = Html::img($image->img_small, ['class' => 'gl-slider-prev']);
+            $items_large[] = Html::a(Html::img($image->large, ['class' => 'img-rounded']), $image->large, ['rel' => 'gl-fancybox']);
+            $items_small[] = Html::img($image->small, ['class' => 'gl-slider-prev']);
         }
 
         echo Slick::widget([

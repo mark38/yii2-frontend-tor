@@ -21,7 +21,7 @@ if ($link->start != 1) $this->params['breadcrumbs'][] = $link->anchor;
 <div class="container">
     <div class="content">
         <?php if (Yii::$app->request->get('id')) {
-            echo Full::widget(['url' => Yii::$app->request->get('url')]);
+            echo Full::widget(['adId' => Yii::$app->request->get('id')]);
         } else {
             echo Preview::widget(['url' => Yii::$app->request->get('url')]);
         }?>

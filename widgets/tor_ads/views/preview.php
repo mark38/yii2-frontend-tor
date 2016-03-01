@@ -38,6 +38,7 @@ use yii\bootstrap\Html;
                 echo '<div>' .
                         Html::a($image, [$ad->link->url, 'id' => $ad->id]) .
                         Html::a($ad->name, [$ad->link->url, 'id' => $ad->id]) .
+
                         '<div>' .
                             Html::tag('span', $ad->city->name) . ' / ' .
                             Html::tag('span', '<em class="text-muted">'.$ad->user->username.' &mdash; <strong>'.$ad->user->rating.'</strong></em>') .
