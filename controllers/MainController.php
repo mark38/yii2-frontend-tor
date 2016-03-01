@@ -85,4 +85,5 @@ class MainController extends Controller
         $model = new GetWidget();
         return $model->getWidget($matches[2]);
     }
+
 }
