@@ -16,12 +16,10 @@ class Homepage extends Widget
     public function run()
     {
         $ads = TorAds::find()->orderBy(['created_at' => SORT_ASC, 'price' => SORT_ASC])->limit(20)->all();
-        $ads_promo = TorAds::find()->limit(5)->orderBy(['created_at' => rand()])->all();
 
         if ($ads) {
             echo $this->render('preview', [
-                'ads' => $ads,
-                'ads_promo' => $ads_promo
+                'ads' => $ads
             ]);
         }
 

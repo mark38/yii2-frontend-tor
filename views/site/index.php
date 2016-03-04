@@ -17,11 +17,7 @@ if ($link->start != 1) $this->params['breadcrumbs'][] = $link->anchor;
 
 ?>
 
-<div class="promo text-center">BANNER</div>
-
-<div class="container">
-    <div class="content">
-        <?=Homepage::widget()?>
-        <?=$contents[0]->text?>
-    </div>
+<div class="content">
+    <?=Homepage::widget()?>
 </div>
+

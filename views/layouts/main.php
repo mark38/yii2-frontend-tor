@@ -6,6 +6,7 @@ use kartik\icons\Icon;
 use frontend\widgets\Alert;
 use frontend\widgets\nav\Top;
 use frontend\widgets\nav\Tor;
+use frontend\widgets\nav\Left;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -31,17 +32,27 @@ Icon::map($this, Icon::FA);
     <div class="wrap">
         <div class="head">
             <?=Top::widget()?>
-            <?=Tor::widget()?>
         </div>
 
         <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                'options' => ['class' => 'breadcrumb']
-            ]) ?>
-            <?= Alert::widget() ?>
+            <div class="content">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    'options' => ['class' => 'breadcrumb']
+                ]) ?>
+                <?= Alert::widget() ?>
+                <div class="">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <?= Left::widget()?>
+                        </div>
+                        <div class="col-sm-9">
+                            <?= $content ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <?= $content ?>
     </div>
 
     <footer class="footer">
