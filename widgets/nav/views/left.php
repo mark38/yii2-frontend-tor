@@ -1,39 +1,47 @@
 <?php
 
 use kartik\sidenav\SideNav;
+use yii\bootstrap\Html;
 
+$url = $_SERVER['REQUEST_URI'];
 ?>
 
 
 <?php
 
-$items = [];
-
-function appendChildren($link)
-{
-    $sub_items = [];
+function appendChild($link, $url) {
+    echo Html::beginTag('ul', ['class' => 'list-unstyled']);
     foreach ($link->links as $child) {
-        if ($child->child_exist) {
-            $sub_items[] = ['label' => $child->anchor, 'url' => $child->url, 'items' => appendChildren($child)];
-        } else {
-            $sub_items[] = ['label' => $child->anchor, 'url' => $child->url];
+        if ($child->child_exist  && strpos($url, $child->url) !== false) {
+            echo Html::beginTag('li');
+            echo Html::a($child->anchor.' ('.count($child->ads).')', [$child->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($child->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+            appendChild($child, $url);
+            echo Html::endTag('li');
+        }
+        else {
+            echo Html::beginTag('li');
+            echo Html::a($child->anchor.' ('.count($child->ads).')', [$child->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($child->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+            echo Html::endTag('li');
         }
     }
-    return $sub_items;
-}
+    echo Html::endTag('ul');
 
+}
+echo Html::beginTag('div', ['class' => 'left-menu']);
+echo Html::beginTag('ul', ['class' => 'list-unstyled']);
 foreach ($links as $link) {
-    if ($link->child_exist) {
-        $items[] = ['label' => $link->anchor, 'url' => $link->url, 'items' => appendChildren($link)];
-    }else {
-        $items[] = ['label' => $link->anchor, 'url' => $link->url];
+    if ($link->child_exist && strpos($url, $link->url) !== false) {
+        echo Html::beginTag('li');
+        echo Html::a($link->anchor.' ('.count($link->ads).')', [$link->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($link->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+        appendChild($link, $url);
+        echo Html::endTag('li');
+    } else {
+        echo Html::beginTag('li');
+        echo Html::a($link->anchor.' ('.count($link->ads).')', [$link->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($link->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+        echo Html::endTag('li');
     }
 }
-
-echo SideNav::widget([
-    'type' => SideNav::TYPE_DEFAULT,
-    'heading' => 'Категории',
-    'items' => $items,
-]);
+echo Html::endTag('ul');
+echo Html::endTag('div');
 ?>
 

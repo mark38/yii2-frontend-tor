@@ -129,3 +129,16 @@ ul.tor-nav-1 > li:hover > .tor-sub-nav {
     color: #ece9e2;
     background-color: #282828;
 }
+
+.left-menu ul {
+    margin-left: 14px;
+}
+
+.left-menu li {
+    border-top: 1px dotted #ccc;
+    line-height: 1.8em;
+}
+
+a.active {
+    color: #333;
+}
