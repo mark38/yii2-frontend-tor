@@ -12,10 +12,10 @@ $this->title = $torAd->name;
     </div>
     <div class="col-sm-6">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 <h1><?= $torAd->name ?></h1>
             </div>
-            <div class="col-sm-3 text-right"><small class="text-muted"><?= date('d.m.Y', $torAd->created_at) ?> | <small class="glyphicon glyphicon-eye-open"></small> <?= $torAd->views ?></small></div>
+            <div class="col-sm-4 text-right"><small class="text-muted"><?= date('d.m.Y', $torAd->created_at) ?> | <small class="glyphicon glyphicon-eye-open"></small> <?= $torAd->views ?></small></div>
         </div>
 
         <div><?= $torAd->description ?></div>

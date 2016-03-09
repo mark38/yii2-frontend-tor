@@ -14,13 +14,13 @@ function appendChild($link, $url) {
     foreach ($link->links as $child) {
         if ($child->child_exist  && strpos($url, $child->url) !== false) {
             echo Html::beginTag('li');
-            echo Html::a($child->anchor.' ('.count($child->ads).')', [$child->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($child->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+            echo Html::a($child->anchor.' ('.$child->ads.')', [$child->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($child->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
             appendChild($child, $url);
             echo Html::endTag('li');
         }
         else {
             echo Html::beginTag('li');
-            echo Html::a($child->anchor.' ('.count($child->ads).')', [$child->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($child->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+            echo Html::a($child->anchor.' ('.$child->ads.')', [$child->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($child->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
             echo Html::endTag('li');
         }
     }
@@ -32,12 +32,12 @@ echo Html::beginTag('ul', ['class' => 'list-unstyled']);
 foreach ($links as $link) {
     if ($link->child_exist && strpos($url, $link->url) !== false) {
         echo Html::beginTag('li');
-        echo Html::a($link->anchor.' ('.count($link->ads).')', [$link->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($link->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+        echo Html::a($link->anchor.' ('.$link->ads.')', [$link->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($link->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
         appendChild($link, $url);
         echo Html::endTag('li');
     } else {
         echo Html::beginTag('li');
-        echo Html::a($link->anchor.' ('.count($link->ads).')', [$link->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($link->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
+        echo Html::a($link->anchor.' ('.$link->ads.')', [$link->url], ['class' => preg_match("/^\/".preg_replace('/\//', '\/', substr($link->url,1))."(\?id=\d+)?$/", $url) ? 'active' : '']);
         echo Html::endTag('li');
     }
 }
