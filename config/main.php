@@ -11,6 +11,11 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'modules' => [
+        'tor_ads' => [
+            'class' => 'frontend\modules\tor_ads\Module',
+        ],
+    ],
     'components' => [
         'request' => [
             'baseUrl' => '',
