@@ -11,7 +11,9 @@ function windows_resize() {
 
 jQuery(document).ready(function(){
     //$(window).load(function(){ windows_resize(); });
-    $(window).on('load', function(){ windows_resize(); });
+    $(window).on('load', function(){
+        windows_resize();
+    });
     $(window).resize(function(){windows_resize();});
 
     $('.tor-nav > ul > li').each(function() {

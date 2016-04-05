@@ -2,6 +2,7 @@
 
 namespace frontend\widgets\nav;
 
+use kartik\typeahead\TypeaheadBasic;
 use Yii;
 use yii\bootstrap\Html;
 use yii\base\Widget;
@@ -10,6 +11,11 @@ use kartik\icons\Icon;
 use kartik\nav\NavX;
 use common\models\User;
 use common\models\main\Links;
+use kartik\editable\Editable;
+use yii\helpers\Url;
+use kartik\typeahead\Typeahead;
+use kartik\depdrop\DepDrop;
+use yii\web\Session;
 
 class Top extends Widget
 {
@@ -38,6 +44,40 @@ class Top extends Widget
 
     public function accountMenu()
     {
+        $session = new Session;
+        $session->open();
+        $city = $session['city'];
+
+        $items[] = '<li>'.Editable::widget([
+            'name'=>'city',
+            'asPopover' => false,
+            'size'=>'sm',
+            'value' => $city,
+            'inputType' => Editable::INPUT_TYPEAHEAD,
+            'buttonsTemplate' => false,
+            'inlineSettings' => ['options' => ['class' => '']],
+            'options' => [
+                'dataset' => [
+                    [
+                        'remote' => [
+                            'url' => Url::to(['/geobase/city-list']) . '?q=%QUERY',
+                            'wildcard' => '%QUERY'
+                        ],
+                        'limit' => 10,
+                    ]
+                ],
+                'pluginEvents' => [
+                    'typeahead:select' => 'function(val, suggestion) {
+                                $.post("/geobase/set-city-session", {
+                                    "suggestion" : suggestion
+                                }, "json").success(function(){
+                                    window.location.reload();
+                                });
+                    }'
+                ]
+            ],
+        ]).'</li>';
+
         if (Yii::$app->user->isGuest) {
             $items[] = ['label' => 'Войти', 'url' => ['/site/login']];
             $items[] = ['label' => 'Зарегистрироваться', 'url' => ['/site/signup']];

@@ -134,7 +134,7 @@ ul.tor-nav-1 > li:hover > .tor-sub-nav {
     margin-left: 14px;
 }
 
-.left-menu li {
+.left-menu li:not(:first-child) {
     border-top: 1px dotted #ccc;
     line-height: 1.8em;
 }
